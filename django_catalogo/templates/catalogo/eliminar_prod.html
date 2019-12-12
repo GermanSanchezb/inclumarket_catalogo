@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block titulo %}
+  Eliminar Producto
+{% endblock titulo %}
+{% block body %}
+<form method="POST">
+      {% csrf_token %}
+      <h2>¿Desea eliminar el regitro {{ produc.nombreProd}}?</h2>
+       <button type="submit" class="btn btn-danger">Eliminar</button>
+       <a href="{% url 'catalogo:lista' %}">Cancelar</a>
+</form>
+
+{% endblock body %}

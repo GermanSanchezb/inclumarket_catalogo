@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block titulo %}
+  Creacion de Productos
+{% endblock titulo %}
+{% block body %}
+<form action="#" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+       <div>
+       <label>Nombre Productos</label>
+       <div>{{ form.nombreProd }}</div>
+       <label>fabricante</label>
+       <div>{{ form.fabricante }}</div>
+       <label>descripcion</label>
+       <div>{{ form.descripcion }}</div>
+       <label>imagen</label>
+       <div>{{ form.imagen }}</div>
+       </div>
+       <button type="submit">Crear</button> 
+
+{% endblock body %}

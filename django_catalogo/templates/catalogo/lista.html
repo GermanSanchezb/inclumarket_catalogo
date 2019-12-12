@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+Listado de Autores
+{% endblock titulo %}
+
+{% block body %}
+
+{% if productos %}
+<table>
+  <thead>
+    <tr>
+    <th>#</th>
+    <th>nombreProd</th>
+    <th>fabricante</th>
+    <th>descripcion</th>
+    <th>imagen</th>
+    </tr>
+  </thead>
+   <tbody>
+    {% for produc in productos %}
+      <tr>
+      <td>{{ produc.idProd}}
+      <td>{{ produc.nombreProd }}</td>
+      <td>{{ produc.fabricante }}</td>
+      <td>{{ produc.descripcion }}</td>
+      <td>
+      {% if produc.imagen %}
+      <img src="{{produc.imagen.url}}" width="200" heigth="200">
+      {% endif %}
+      </td>
+      <td>
+       <a href="{% url 'catalogo:mod_prod' produc.idProd %}">Modificar<a/>
+       <a href="{% url 'catalogo:eliminar_prod' produc.idProd %}">Eliminar<a/>
+       </td>
+      </tr>
+    {% endfor %}
+    <a href="{% url 'catalogo:crear_prod'%}">Crear<a/>
+  </tbody>
+</table>
+{% else %}
+<h1> No existen autores registrados </h1>
+{% endif %}
+{% endblock body %}
